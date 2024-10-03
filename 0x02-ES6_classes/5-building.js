@@ -2,7 +2,6 @@ export default class Building {
   constructor(sqft) {
     this._sqft = sqft;
 
-    // Check if the evacuationWarningMessage method is implemented
     if (new.target !== Building && this.evacuationWarningMessage === undefined) {
       throw new Error("Class extending Building must override evacuationWarningMessage");
     }
