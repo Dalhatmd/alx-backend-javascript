@@ -1,4 +1,4 @@
-export default function createReportObject (employeeList) {
+export default function createReportObject(employeeList) {
   return {
     allEmployees: {
       ...employeeList,
