@@ -11,4 +11,4 @@ process.on('exit', (code) => {
   console.log('This important software is now closing');
 });
 
-console.log("Welcome to Holberton School, what is your name?\n");
+console.log("Welcome to Holberton School, what is your name?");
