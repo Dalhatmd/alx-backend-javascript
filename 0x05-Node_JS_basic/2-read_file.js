@@ -5,8 +5,8 @@ function countStudents(path) {
     throw new Error('Cannot load the database');
   }
 
-  const in_file = fs.readFileSync(path, 'utf8');
-  const lines = in_file.split('\n');
+  const inFile = fs.readFileSync(path, 'utf8');
+  const lines = inFile.split('\n');
   const fieldName = {};
   let students = -1;
   for (const line of lines) {
@@ -15,17 +15,17 @@ function countStudents(path) {
       const field = columns[3];
       const firstname = columns[0];
       if (students >= 0) {
-        if (!Object.hasOwnProperty.call (fieldName, field)) {
-         fieldName[field] = [];
+        if (!Object.hasOwnProperty.call(fieldName, field)) {
+          fieldName[field] = [];
         }
-     fieldName[field] = [... fieldName[field], firstname];
+        fieldName[field] = [...fieldName[field], firstname];
       }
       students += 1;
     }
   }
   console.log(`Number of students: ${students}`);
   for (const key in fieldName) {
-    if (Object.hasOwnProperty.call (fieldName, key)) {
+    if (Object.hasOwnProperty.call(fieldName, key)) {
       console.log(`Number of students in ${key}: ${fieldName[key].length}. List: ${fieldName[key].join(', ')}`);
     }
   }
