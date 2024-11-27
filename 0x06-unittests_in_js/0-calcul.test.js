@@ -5,20 +5,16 @@ describe('Calculate', function () {
   it('should return 2', function () {
     assert.equal(calculateNumber(1, 1), 2);
   });
-  it('should raise a TypeError', function () {
-    assert.throws(() => {
-      calculateNumber('a',1);
-    }, {
-      name: 'TypeError',
-      message: 'Both arguments must be numbers'
-    });
-  it('should raise a TypeError', function () {
-    assert.throws(() => {
-      calculateNumber(2, 'c');
-    }, {
-      name: 'TypeError',
-      message: 'Both arguments must be numbers'
-    });
-    });
+  it('should return 6', function () {
+    assert.equal(calculateNumber(1.5, 3.7), 6);
+  });
+  it('should return 5', function () {
+    assert.equal(calculateNumber(1.2, 3.7), 5);
+  });
+  it('should return 5', function () {
+      assert.equal(calculateNumber(1, 3.7), 5);
+  });
+  it('should return 4', function () {
+    assert.equal(calculateNumber(1, 3), 4);
   });
 });
