@@ -6,7 +6,7 @@ describe('Calculate', function () {
     chai = await import('chai');
     expect = chai.expect;
 
-    calculateNumber = require('./2-calcul');
+    calculateNumber = require('./2-calcul_chai');
   });
   it('should return 2', function () {
     expect(calculateNumber("SUM", 1, 1)).to.equal(2);
