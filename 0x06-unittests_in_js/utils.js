@@ -1,4 +1,4 @@
-class Utils {
+const Utils = {
   calculateNumber(type, a, b) {
     a = Math.round(a);
     b = Math.round(b);
@@ -17,7 +17,7 @@ class Utils {
           return a / b;
         }
     }
-  };
-}
+  }
+};
 
 module.exports = Utils;

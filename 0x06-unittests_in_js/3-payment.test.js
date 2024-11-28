@@ -4,26 +4,20 @@ const Utils = require('./utils');
 const { sendPaymentRequestToApi } = require('./3-payment');
 
 describe('sendPaymentRequestToApi', () => {
-    let calculateNumberStub;
-
-    beforeEach(() => {
-        // Create a stub for Utils.calculateNumber
-        calculateNumberStub = sinon.stub(Utils.prototype, 'calculateNumber');
-        calculateNumberStub.withArgs('SUM', 100, 20).returns(120);
-    });
-
-    afterEach(() => {
-        // Restore the stub
-        calculateNumberStub.restore();
-    });
-
     it('should use Utils.calculateNumber', () => {
-        const result = sendPaymentRequestToApi(100, 20);
-
-        // Verify the stub was called with the correct arguments
-        sinon.assert.calledWith(calculateNumberStub, 'SUM', 100, 20);
+        // First, log Utils to see its structure
+        console.log('Utils object:', Utils);
         
-        // Verify the result
-        expect(result).to.equal(120);
+        // Create a spy instead of a stub to see what's happening
+        const calculateNumberSpy = sinon.spy(Utils, 'calculateNumber');
+        
+        const result = sendPaymentRequestToApi(100, 20);
+        
+        // Check if the spy was called
+        expect(calculateNumberSpy.calledOnce).to.be.true;
+        expect(calculateNumberSpy.calledWith('SUM', 100, 20)).to.be.true;
+        
+        // Restore the spy
+        calculateNumberSpy.restore();
     });
 });
