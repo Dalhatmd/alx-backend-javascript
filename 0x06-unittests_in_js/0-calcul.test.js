@@ -17,4 +17,10 @@ describe('Calculate', function () {
   it('should return 4', function () {
     assert.equal(calculateNumber(1, 3), 4);
   });
+  it('should return -4', () => {
+    assert.strictEqual(calculateNumber(-1, -2.7), -4);
+  });
+  it('should return -4', () => {
+    assert.strictEqual(calculateNumber(-1.7, -2), -4);
+  });
 });
